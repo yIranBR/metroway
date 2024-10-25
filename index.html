@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./storage/css/index.css">
+    <link rel="stylesheet" href="./storage/css/slider.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css"/>
+    <title>Metroway</title>
+</head>
+<body>
+    <div id="videoPopupContainer" class="close">
+        <video id="myVideoPopup" loop="true" preload="auto" autoplay="true" muted="true" playsinline="true" data-wf-ignore="true" data-object-fit="cover">
+            <source src="./storage/content/sections/1-animation/1-video.mp4" data-wf-ignore="true" />
+        </video>
+        <button id="closePopupBtn" class="arrow-btn reset-btn d-flex align-items-center justify-center reset-btn">
+            <img src="./storage/content/icons/popup/close-full-screen-btn.svg">
+        </button>
+    </div>
+    <div id="app" class="d-flex align-items-center justify-center">
+        <main class="d-flex align-items-center justify-center flex-wrap">
+            <div id="aside-navbar" class="aside-navbar style-bar d-flex align-items-center justify-center flex-column">
+                <a class="d-flex flex-wrap active" data-href="#animation-1">
+                    <button class="icon d-flex align-items-center justify-center reset-btn">
+                        <img src="./storage/content/icons/menu-navbar/1-icon-aside-navbar.svg">
+                    </button>
+                    <p class="fw-regular white fs-24 align-self-center">Animação</p>
+                </a>
+                <a class="d-flex flex-wrap" data-href="#facade-2">
+                    <button class="icon d-flex align-items-center justify-center reset-btn">
+                        <img src="./storage/content/icons/menu-navbar/2-icon-aside-navbar.svg">
+                    </button>
+                    <p class="fw-regular white fs-24 align-self-center">Fachada</p>
+                </a>
+                <a class="d-flex flex-wrap" data-href="#view-3">
+                    <button class="icon d-flex align-items-center justify-center reset-btn">
+                        <img src="./storage/content/icons/menu-navbar/3-icon-aside-navbar.svg">
+                    </button>
+                    <p class="fw-regular white fs-24 align-self-center">Vistas</p>
+                </a>
+                <a class="d-flex flex-wrap" data-href="#perspectives-4">
+                    <button class="icon d-flex align-items-center justify-center reset-btn">
+                        <img src="./storage/content/icons/menu-navbar/4-icon-aside-navbar.svg">
+                    </button>
+                    <p class="fw-regular white fs-24 align-self-center">Perspectivas</p>
+                </a>
+                <a class="d-flex flex-wrap" data-href="#plan-5">
+                    <button class="icon d-flex align-items-center justify-center reset-btn">
+                        <img src="./storage/content/icons/menu-navbar/5-icon-aside-navbar.svg">
+                    </button>
+                    <p class="fw-regular white fs-24 align-self-center">Plantas</p>
+                </a>
+                <a class="d-flex flex-wrap" data-href="#institutional-6">
+                    <button class="icon d-flex align-items-center justify-center reset-btn">
+                        <img src="./storage/content/icons/menu-navbar/6-icon-aside-navbar.svg">
+                    </button>
+                    <p class="fw-regular white fs-24 align-self-center">Localização</p>
+                </a>
+                <a class="d-flex flex-wrap" data-href="#diferencials-7">
+                    <button class="icon d-flex align-items-center justify-center reset-btn">
+                        <img src="./storage/content/icons/menu-navbar/7-icon-aside-navbar.svg">
+                    </button>
+                    <p class="fw-regular white fs-24 align-self-center">Diferenciais</p>
+                </a>
+            </div>
+            <div id="sections-list">
+                <section id="animation-1" class="d-flex align-items-center justify-center flex-wrap flex-column">
+                    <div class="main-content">
+                        <video id="myVideo" loop="true" preload="auto" autoplay="true" muted="true" playsinline="true" data-wf-ignore="true" data-object-fit="cover">
+                            <source src="./storage/content/sections/1-animation/1-video.mp4" data-wf-ignore="true" />
+                        </video>
+                        <button id="openPopupBtn" class="arrow-btn reset-btn d-flex align-items-center justify-center reset-btn">
+                            <img src="./storage/content/icons/popup/open-full-screen-btn.svg">
+                        </button>
+                    </div>
+                    <div class="controls d-flex align-items-center justify-center flex-wrap">
+                        <button id="backVideo" class="control-btn reset-btn"><img src="./storage/content/icons/video-controler/prev-video.svg"></button>
+                        <button id="playPause" class="control-btn reset-btn"><img src="./storage/content/icons/video-controler/pause-btn-icon.svg"></button>
+                        <button id="nextVideo" class="control-btn reset-btn"><img src="./storage/content/icons/video-controler/next-video.svg"></button>
+                        <div class="progress-container align-self-center">
+                            <div id="progress-bar"></div>
+                        </div>
+                    </div>
+                </section>
+                <section id="facade-2" class="d-flex align-items-center justify-center flex-wrap flex-column">
+                    <div class="main-content">
+                        <img src="./storage/content/sections/2-facade/1-img.png">
+                    </div>
+                    <div class="control-slider style-bar d-flex align-items-center justify-center flex-wrap">
+                        <button id="backSlide" class="control-btn reset-btn"><img src="./storage/content/icons/video-controler/left-arrow.svg"></button>
+                        <button id="playPauseSlide" class="control-btn reset-btn"><img src="./storage/content/icons/video-controler/play-btn-icon.svg"></button>
+                        <button id="nextSlide" class="control-btn reset-btn"><img src="./storage/content/icons/video-controler/right-arrow.svg"></button>
+                    </div>
+                </section>
+                <section id="view-3" class="d-flex align-items-center justify-between flex-wrap">
+                    <div id="panoramic-viewer" class="d-flex align-items-center justify-center flex-wrap flex-column">
+                        <div class="view-legend style-bar d-flex align-items-center justify-center flex-wrap">
+                            <p class="fw-medium white fs-24">Vista Panorâmica do Andar 1°</p>
+                        </div>
+                        <div class="main-content">
+                            <div id="panorama"></div>
+                        </div>
+                    </div>
+                    <div id="viewer-controller" class="d-flex align-items-center">
+                        <div class="d-flex align-items-center justify-center flex-wrap flex-column">
+                            <button id="next-floor-view" class="reset-btn arrow-btn">
+                                <img src="./storage/content/icons/slider-icons/left-arrow.svg">
+                            </button>
+                            <p class="fw-medium white fs-24">5°</p>
+                            <button id="prev-floor-view" class="reset-btn arrow-btn">
+                                <img src="./storage/content/icons/slider-icons/right-arrow.svg">
+                            </button>
+                        </div>
+                    </div>
+                </section>
+                <section id="perspectives-4" class="d-flex align-items-center justify-center flex-wrap flex-column">
+                    <div class="main-content">
+                        <div class="gallery">
+                            <div class="gallery-container">
+                                <img src="./storage/content/sections/2-facade/1-img.png" class="gallery-item gallery-item-1" data-idenx="1" data-legend="Nome da planta baixa - 1">
+                                <img src="./storage/content/sections/7-diferencials/3-img.jpg" class="gallery-item gallery-item-2" data-idenx="2" data-legend="Nome da planta baixa - 2">
+                                <img src="./storage/content/sections/4-perspectives/1-img.jpg" class="gallery-item gallery-item-3" data-idenx="3" data-legend="Nome da planta baixa - 3">
+                                <img src="./storage/content/sections/6-institutional/1-img.jpg" class="gallery-item gallery-item-4" data-idenx="4" data-legend="Nome da planta baixa - 4">
+                                <img src="./storage/content/sections/7-diferencials/2-img.jpg" class="gallery-item gallery-item-5" data-idenx="5" data-legend="Nome da planta baixa - 5">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="control-slider style-bar d-flex align-items-center justify-center flex-wrap">
+                        <button id="backSlide" class="control-btn reset-btn"><img src="./storage/content/icons/video-controler/left-arrow.svg"></button>
+                        <p class="fw-medium white fs-24">Nome da planta baixa</p>
+                        <button id="nextSlide" class="control-btn reset-btn"><img src="./storage/content/icons/video-controler/right-arrow.svg"></button>
+                    </div>
+                </section>
+                <section id="plan-5" class="d-flex align-items-center justify-center flex-wrap flex-column">
+                    <div class="main-content">
+                        <img src="./storage/content/sections/5-plan/1-img.jpg">
+                    </div>
+                    <div class="control-slider style-bar d-flex align-items-center justify-center flex-wrap">
+                        <button class="reset-btn active"><p class="fw-regular white fs-21">2 Dormitórios</p></button>
+                        <button class="reset-btn"><p class="fw-regular white fs-21">Final 09</p></button>
+                        <button class="reset-btn"><p class="fw-regular white fs-21">Final 11</p></button>
+                    </div>
+                </section>
+                <section id="institutional-6" class="d-flex align-items-center justify-center flex-wrap flex-column">
+                    <div class="main-content">
+                        <img src="./storage/content/sections/6-institutional/1-img.jpg">
+                    </div>
+                    <div class="control-slider style-bar d-flex flex-column flex-wrap">
+                        <h2 class="fw-medium white fs-24">Escola Pueri Domus</h2>
+                        <p class="fw-regular white fs-21">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ultrices est vitae massa aliquet volutpat. Etiam justo nisi, iaculis quis bibendum in, laoreet id erat. Etiam eleifend sapien id diam eleifend ornare. Sed eget nulla lectus.</p>
+                    </div>
+                </section>
+                <section id="diferencials-7" class="d-flex align-items-center justify-center flex-wrap flex-column">
+                    <div class="text-container d-flex align-items-center justify-center flex-column flex-wrap">
+                        <div class="head-group d-flex align-items-center justify-between flex-wrap">
+                            <button class="reset-btn arrow-btn d-flex align-items-center justify-center flex-wrap"><img src="./storage/content/icons/slider-icons/left-arrow.svg"></button>
+                            <h1 class="fw-regular white fs-24">Diferenciais</h1>
+                            <button class="reset-btn arrow-btn d-flex align-items-center justify-center flex-wrap"><img src="./storage/content/icons/slider-icons/right-arrow.svg"></button>
+                        </div>
+                        <div class="img-header">
+                            <img src="./storage/content/sections/7-diferencials/1-img.png">
+                        </div>
+                        <div class="txt-group d-flex flex-column">
+                            <h2 class="fw-medium white fs-21">Fechadura Digital</h2>
+                            <p class="fw-regular white fs-18">Alguma observação</p>
+                            <p class="fw-regular white fs-21">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ultrices est vitae massa aliquet volutpat. Etiam justo nisi, iaculis quis bibendum in, laoreet id erat. Etiam eleifend sapien id diam eleifend ornare. Sed eget nulla lectus. Pellentesque dictum metus quis arcu porta varius vulputate non elit. Nam sit amet mauris tristique, mollis magna ac, fringilla sapien. Etiam tempor ultrices mi, vitae vestibulum dui auctor eget. Nulla at enim blandit, auctor mauris sed, pharetra ligula. Vestibulum ornare viverra rhoncus. Mauris at scelerisque odio. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. In pulvinar sodales nunc. Nullam in nisi arcu. Suspendisse eu ligula ut ex imperdiet ultrices. Sed dictum ipsum vel urna iaculis mattis sed a erat. Aliquam vehicula ac erat a sodales.</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+    <script src="./storage/js/navbar.js"></script>
+    <script src="./storage/js/diferencials.js"></script>
+    <script src="./storage/js/videoController.js"></script>
+    <script src="./storage/js/slider.js"></script>
+    <script src="./storage/js/popup.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
+    <script>
+        pannellum.viewer('panorama', {
+            "type": "equirectangular",
+            "panorama": "./storage/content/sections/3-view/1-img.jpg",
+            "autoLoad": true,
+            "showControls": false,
+            "mouseZoom": false
+        });
+    </script>
+</body>
+</html>

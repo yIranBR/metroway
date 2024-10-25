@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="38" height="57" viewBox="0 0 38 57">
+  <g id="Grupo_2" data-name="Grupo 2" transform="translate(-622 -638)">
+    <g id="Grupo_1" data-name="Grupo 1">
+      <g id="Retângulo_1" data-name="Retângulo 1" transform="translate(622 638)" fill="#fff" stroke="#707070" stroke-width="1">
+        <rect width="12" height="57" rx="6" stroke="none"/>
+        <rect x="0.5" y="0.5" width="11" height="56" rx="5.5" fill="none"/>
+      </g>
+      <g id="Retângulo_2" data-name="Retângulo 2" transform="translate(648 638)" fill="#fff" stroke="#707070" stroke-width="1">
+        <rect width="12" height="57" rx="6" stroke="none"/>
+        <rect x="0.5" y="0.5" width="11" height="56" rx="5.5" fill="none"/>
+      </g>
+    </g>
+  </g>
+</svg>
