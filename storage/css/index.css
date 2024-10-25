@@ -37,13 +37,13 @@ body, main {
     font-weight: 400 !important;
 }
 .fs-24 {
-    font-size: 24px;
+    font-size: 1.25vw;
 }
 .fs-21 {
-    font-size: 21px;
+    font-size: 1.09vw;
 }
 .fs-18 {
-    font-size: 18px;
+    font-size: .93vw;
 }
 .d-flex {
     display: flex;
@@ -77,41 +77,41 @@ body, main {
 }
 
 .style-bar {
-    border-radius: 50px;
+    border-radius: 3.6vw;
     background-color: rgba(88, 88, 88, 0.3);
     border: 1px solid #a3a3a3;
     box-shadow: 4px 0 10px rgba(0, 0, 0, .25);
 }
 .aside-navbar {
-    margin: auto 32px;
-    padding: 16px;
-    gap: 27px;
+    margin: auto 1.66vw;
+    padding: 1vw;
+    gap: 1.66vw;
     transition: var(--time-transition) ease-in-out;
-    width: 2.7%;
+    width: 3.7%;
 }
 .aside-navbar a.active {
     background-image: linear-gradient(45deg, rgba(255, 255, 255, .2), transparent);
-    border-radius: 50px;
+    border-radius: 3.6vw;
 }
 @keyframes teste {
     0% {
-        transform: translateX(100px);
+        transform: translateX(5.2vw);
         opacity: 1;
     }
     50% {
-        transform: translateX(50px);
+        transform: translateX(3.6vw);
         opacity: 0;
     }
     100% {
-        transform: translateX(100px);
+        transform: translateX(5.2vw);
         opacity: 1;
     }
 }
 .aside-navbar a p {
-    padding: 0 16px;
+    padding: 0 1vw;
     /*animation: 1s teste infinite;*/
     position: absolute;
-    transform: translateX(-50px);
+    transform: translateX(-3.6vw);
     opacity: 0;
     transition: var(--time-transition) ease-in-out;
 }
@@ -119,19 +119,19 @@ body, main {
     width: 12%;
 }
 .aside-navbar.open a p {
-    transform: translateX(50px);
+    transform: translateX(3.6vw);
     opacity: 1;
 }
 .aside-navbar button {
-    padding: 16px;
+    padding: 1vw;
     border-radius: 50%;
 }
 .aside-navbar li.active button {
     background-color: rgba(255, 255, 255, .2);
 }
 .aside-navbar button img {
-    width: 24px;
-    height: 24px;
+    width: 1.8vw;
+    width: 1.8vw;
     object-fit: contain;
     aspect-ratio: 1/1;
 }
@@ -149,11 +149,10 @@ body, main {
 #app .main-content {
     width: 70vw;
     aspect-ratio: 16 / 9;
-    margin-bottom: 32px;
-    border-radius: 50px;
-    overflow: hidden;
     margin: 0;
-    margin-bottom: 32px;
+    margin-bottom: 1.66vw;
+    border-radius: 3.6vw;
+    overflow: hidden;
     background-color: rgba(255, 255, 255, .25);
 }
 #app .main-content video, #app .main-content img, #panorama, #diferencials-7 .text-container .img-header img {
@@ -164,18 +163,18 @@ body, main {
 #app .controls {
     background-color: #808080;
     background-image: linear-gradient(180deg, rgba(57, 57, 57, .75), rgba(111, 111, 111, .75));
-    border-radius: 50px;
-    padding: 16px 32px;
-    gap: 32px;
+    border-radius: 3.6vw;
+    padding: 1vw 1.66vw;
+    gap: 1.66vw;
     border-top: 1px solid rgba(255, 255, 255, .2);
     border-left: 1px solid rgba(255, 255, 255, .2);
     position: relative;
     width: 60%;
-    height: 32px;
+    height: 1.66vw;
     margin: 0 auto;
 }
 #app .controls button img, #app .control-slider button img {
-    width: 21px;
+    width: 1.3vw;
     height: auto;
     object-fit: contain;
 }
@@ -201,28 +200,28 @@ body, main {
     width: 70%;
     height: 35%;
     background-color: #353535;
-    border-radius: 50px;
-    margin-left: 32px;
+    border-radius: 3.6vw;
+    margin-left: 1.66vw;
     overflow: hidden;
 }
 #app .controls #progress-bar {
     background-color: #d4d4d4;
     width: 0%;
     height: 100%;
-    border-radius: 50px;
+    border-radius: 3.6vw;
 }
 #view-3 .main-content {
     margin-bottom: 0;
-    margin-top: 32px;
+    margin-top: 1.66vw;
 }
 #facade-2 .control-slider, #view-3 .view-legend, #perspectives-4 .control-slider, #plan-5 .control-slider {
     width: auto;
     margin: 0 auto;
-    gap: 64px;
-    padding: 16px 32px;
+    gap: 3.33vw;
+    padding: .83vw 1.66vw;
 }
 #view-3 .view-legend {
-    padding: 16px 64px;
+    padding: 1vw 3.33vw;
 }
 #panoramic-viewer {
     width: 90%;
@@ -232,13 +231,13 @@ body, main {
 }
 #viewer-controller > div {
     background-color: rgba(0, 0, 0, .2);
-    gap: 21px;
-    border-radius: 50px;
+    gap: .83vw;
+    border-radius: 3.6vw;
     margin: auto;
 }
 #view-3 .arrow-btn {
     transform: rotate(90deg);
-    width: 72px;
+    width: 3.75vw;
 }
 #view-3 .arrow-btn img {
     width: 40%;
@@ -248,35 +247,35 @@ body, main {
     text-align: center;
 }
 #perspectives-4 .control-slider {
-    gap: 128px;
+    gap: 6.66vw;
 }
 #plan-5 .control-slider {
     flex-wrap: nowrap;
-    gap: 32px;
-    width: 40%;
+    gap: 1.66vw;
+    width: 50%;
 }
 #plan-5 .control-slider button {
-    padding: 4px 16px;
-    border-radius: 50px;
+    padding: .5vw 1.66vw;
+    border-radius: 3.6vw;
     width: 100%;
 }
 #plan-5 .control-slider button.active {
     background-color: rgba(128, 128, 128, 1);
 }
 #institutional-6 .control-slider {
-    padding: 32px 64px;
-    gap: 16px;
+    padding: 1.66vw 3.33vw;
+    gap: 1vw;
 }
 #diferencials-7 .text-container {
-    gap: 32px;
+    gap: 1.66vw;
     background-color: rgba(128, 128, 128, .7);
-    padding: 32px 64px;
-    border-radius: 50px;
+    padding: 1.66vw 3.33vw;
+    border-radius: 3.6vw;
 }
 #diferencials-7 .text-container .img-header {
     width: 100%;
-    height: 300px;
-    border-radius: 25px;
+    height: 15.62vw;
+    border-radius: 1.3vw;
     overflow: hidden;
 }
 #diferencials-7 .text-container .img-header img {
@@ -286,10 +285,10 @@ body, main {
     text-align: center;
 }
 #diferencials-7 .text-container .txt-group {
-    gap: 16px;
+    gap: 1vw;
 }
 .arrow-btn {
-    width: 48px;
+    width: 2.5vw;
     aspect-ratio: 1 / 1;
     border-radius: 50%;
     background-color: rgba(255, 255, 255, .4);
@@ -321,19 +320,22 @@ body, main {
     inset: 0;
     overflow: hidden;
     margin: auto;
+    border-radius: 0;
 }
 #myVideoPopup {
     position: absolute;
     inset: 0;
+    width: 100vw;
+    height: 100vh;
     margin: auto;
 }
 #videoPopupContainer button {
     position: absolute;
     display: block;
-    width: 48px;
+    width: 2.5vw;
     aspect-ratio: 1 / 1;
-    top: 32px;
-    right: 32px;
+    top: 1.66vw;
+    right: 1.66vw;
 }
 #videoPopupContainer button img {
     position: absolute;
@@ -344,16 +346,17 @@ body, main {
     margin: auto;
 }
 #videoPopupContainer.close {
-    width: 1344px;
-    height: 756px;
+    width: 70vw;
+    height: 39.37vw;
     opacity: 0;
     filter: grayscale(1);
     pointer-events: none;
+    border-radius: 3.6vw;
 }
 #openPopupBtn {
-    width: 48px;
-    aspect-ratio: 1/1;
+    width: 2.5vw;
+    aspect-ratio: 1 / 1;
     position: absolute;
-    right: 32px;
-    top: 32px;
+    right: 1.66vw;
+    top: 1.66vw;
 }

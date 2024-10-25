@@ -26,6 +26,7 @@ navbar.addEventListener("click", ()=> {
 
 links.forEach((link, i) => {
     link.addEventListener("click", ()=> {
+        //goToSection(opened, link);
         if (i == 0 || i == 1) {
             goToSection(opened, link);
         } else {
