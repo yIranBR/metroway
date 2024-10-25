@@ -188,7 +188,7 @@ body, main {
     flex-wrap: wrap;
     overflow-y: scroll;
     overflow-x: visible;
-    overflow: hidden;
+    /*overflow: hidden;*/
 }
 #app #sections-list section {
     height: 100vh;
