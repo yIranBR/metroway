@@ -28,6 +28,9 @@ body, main {
 .white {
     color: #fff;
 }
+.grey {
+    color: #86847c;
+}
 .fw-medium {
     font-family: 'SF Pro Display Medium', sans-serif;
     font-size: 500 !important;
@@ -147,7 +150,7 @@ body, main {
     background-attachment: fixed;
 }
 #app .main-content {
-    width: 70vw;
+    width: 100%;
     aspect-ratio: 16 / 9;
     margin: 0;
     margin-bottom: 1.66vw;
@@ -179,9 +182,11 @@ body, main {
     object-fit: contain;
 }
 #app #sections-list {
-    width: 80vw;
+    width: 79vw;
     height: 100vh;
     aspect-ratio: 16 / 9;
+    padding: 0 !important;
+    margin: auto 1.66vw;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -191,6 +196,7 @@ body, main {
     /*overflow: hidden;*/
 }
 #app #sections-list section {
+    width: 100%;
     height: 100vh;
 }
 #app #sections-list::-webkit-scrollbar {
@@ -214,6 +220,22 @@ body, main {
     margin-bottom: 0;
     margin-top: 1.66vw;
 }
+#view-3 .main-content-list {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    flex-direction: row;
+    transition: 1s ease-in-out;
+    transform: translateY(-150%);
+}
+#view-3 .main-content-list .pano-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    inset: 0;
+    margin: auto;
+}
+
 #facade-2 .control-slider, #view-3 .view-legend, #perspectives-4 .control-slider, #plan-5 .control-slider {
     width: auto;
     margin: 0 auto;
@@ -228,12 +250,39 @@ body, main {
 }
 #viewer-controller {
     z-index: 9;
+    width: 6.5%;
+    justify-content: end;
+    gap: 3.22vw;
 }
-#viewer-controller > div {
+#viewer-slider {
     background-color: rgba(0, 0, 0, .2);
     gap: .83vw;
     border-radius: 3.6vw;
-    margin: auto;
+    margin: 0 auto;
+}
+#predio {
+    position: relative;
+    width: 100%;
+}
+#predio img {
+    width: 100%;
+    object-fit: contain;
+}
+#predio .indicator {
+    position: absolute;
+    width: 100%;
+    background-color: rgba(128, 128, 128, .64);
+    border-radius: 1.3vw;
+    justify-content: start;
+    margin-top: -8vw;
+    transition: 1s ease-in-out;
+}
+#predio .indicator .ball {
+    width: 1.5vw;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    background-color: #fff;
+    text-align: center;
 }
 #view-3 .arrow-btn {
     transform: rotate(90deg);
@@ -245,6 +294,17 @@ body, main {
 }
 #view-3 p {
     text-align: center;
+}
+#krpanoSWFObject > div:last-child, 
+#krpanoSWFObject2 > div:last-child,
+#krpanoSWFObject3 > div:last-child,
+#krpanoSWFObject4 > div:last-child {
+    opacity: 0 !important;
+    pointer-events: none !important;
+    display: none !important;
+    background: none !important;
+    color: transparent !important;
+    z-index: -999 !important;
 }
 #perspectives-4 .control-slider {
     gap: 6.66vw;

@@ -95,14 +95,88 @@
                 <section id="view-3" class="d-flex align-items-center justify-between flex-wrap">
                     <div id="panoramic-viewer" class="d-flex align-items-center justify-center flex-wrap flex-column">
                         <div class="view-legend style-bar d-flex align-items-center justify-center flex-wrap">
-                            <p class="fw-medium white fs-24">Vista Panorâmica do Andar 1°</p>
+                            <p class="fw-medium white fs-24">Vista Panorâmica do Andar 5°</p>
                         </div>
                         <div class="main-content">
-                            <div id="panorama"></div>
+                            <div class="main-content-list d-flex align-items-center justify-center flex-wrap">
+                                <script src="./storage/library/panos/tour.js"></script>
+                                <div id="pano4" class="pano-container">
+                            	<noscript><table style="width:100%;height:100%;"><tr style="vertical-align:middle;"><td><div style="text-align:center;">ERROR:<br/><br/>Javascript not activated<br/><br/></div></td></tr></table></noscript>
+                            	<script>
+                            		embedpano({
+                                        swf:"./storage/library/panos/tour.swf", 
+                                        xml:"./storage/library/panos/tour4.xml", 
+                                        target:"pano4", 
+                                        html5:"auto", 
+                                        mobilescale:1.0, 
+                                        passQueryParameters: true, 
+                                        onstart: function (krpano) {
+                                            krpano.control.disablewheel();
+                                        }
+                                    })
+                            	</script>
+                                </div>
+                                <div id="pano3" class="pano-container">
+                                    <noscript><table style="width:100%;height:100%;"><tr style="vertical-align:middle;"><td><div style="text-align:center;">ERROR:<br/><br/>Javascript not activated<br/><br/></div></td></tr></table></noscript>
+                                    <script>
+                                        embedpano({
+                                            swf:"./storage/library/panos/tour.swf", 
+                                            xml:"./storage/library/panos/tour3.xml", 
+                                            target:"pano3", 
+                                            html5:"auto", 
+                                            mobilescale:1.0, 
+                                            passQueryParameters: true, 
+                                            onstart: function (krpano) {
+                                                krpano.control.disablewheel();
+                                            }
+                                        })
+                                    </script>
+                                </div>
+                                <div id="pano2" class="pano-container">
+                                    <noscript><table style="width:100%;height:100%;"><tr style="vertical-align:middle;"><td><div style="text-align:center;">ERROR:<br/><br/>Javascript not activated<br/><br/></div></td></tr></table></noscript>
+                                    <script>
+                                        embedpano({
+                                            swf:"./storage/library/panos/tour.swf", 
+                                            xml:"./storage/library/panos/tour2.xml", 
+                                            target:"pano2", 
+                                            html5:"auto", 
+                                            mobilescale:1.0, 
+                                            passQueryParameters: true, 
+                                            onstart: function (krpano) {
+                                                krpano.control.disablewheel();
+                                            }
+                                        })
+                                    </script>
+                                </div>
+                                <div id="pano1" class="pano-container">
+                                    <noscript><table style="width:100%;height:100%;"><tr style="vertical-align:middle;"><td><div style="text-align:center;">ERROR:<br/><br/>Javascript not activated<br/><br/></div></td></tr></table></noscript>
+                                    <script>
+                                        embedpano({
+                                            swf:"./storage/library/panos/tour.swf", 
+                                            xml:"./storage/library/panos/tour1.xml", 
+                                            target:"pano1", 
+                                            html5:"auto", 
+                                            mobilescale:1.0, 
+                                            passQueryParameters: true, 
+                                            onstart: function (krpano) {
+                                                krpano.control.disablewheel();
+                                            }
+                                        })
+                                    </script>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div id="viewer-controller" class="d-flex align-items-center">
-                        <div class="d-flex align-items-center justify-center flex-wrap flex-column">
+                    <div id="viewer-controller" class="d-flex align-items-center flex-column flex-wrap">
+                        <div id="predio">
+                            <img src="./storage/content/sections/3-view/predio.svg">
+                            <div class="indicator d-flex align-items-center">
+                                <div class="ball d-flex align-items-center justify-center flex-wrap">
+                                    <p class="fw-regular grey fs-18">5°</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="viewer-slider" class="d-flex align-items-center justify-center flex-wrap flex-column">
                             <button id="next-floor-view" class="reset-btn arrow-btn">
                                 <img src="./storage/content/icons/slider-icons/left-arrow.svg">
                             </button>
@@ -112,6 +186,8 @@
                             </button>
                         </div>
                     </div>
+                        <!-- Inicialize o Krpano e passe uma função callback -->
+                            <krpano onready="initializeViewControls()"></krpano>
                 </section>
                 <section id="perspectives-4" class="d-flex align-items-center justify-center flex-wrap flex-column">
                     <div class="main-content">
@@ -175,15 +251,6 @@
     <script src="./storage/js/videoController.js"></script>
     <script src="./storage/js/slider.js"></script>
     <script src="./storage/js/popup.js"></script>
-    <script type="text/javascript" src="./storage/library/pannellum/pannellum.js"></script>
-    <script>
-        pannellum.viewer('panorama', {
-            "type": "equirectangular",
-            "panorama": "./storage/content/sections/3-view/1-img.jpg",
-            "autoLoad": true,
-            "showControls": false,
-            "mouseZoom": false
-        });
-    </script>
+    <script src="./storage/js/view.js"></script>
 </body>
 </html>
