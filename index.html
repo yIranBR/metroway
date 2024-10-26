@@ -50,7 +50,7 @@
                     </button>
                     <p class="fw-regular white fs-24 align-self-center">Plantas</p>
                 </a>
-                <a class="d-flex flex-wrap" data-href="#institutional-6">
+                <a class="d-flex flex-wrap" data-href="#location-6">
                     <button class="icon d-flex align-items-center justify-center reset-btn">
                         <img src="./storage/content/icons/menu-navbar/6-icon-aside-navbar.svg">
                     </button>
@@ -73,7 +73,7 @@
                             <img src="./storage/content/icons/popup/open-full-screen-btn.svg">
                         </button>
                     </div>
-                    <div class="controls d-flex align-items-center justify-center flex-wrap">
+                    <div id="video-bar-controller" class="controls d-flex align-items-center justify-center flex-wrap">
                         <button id="backVideo" class="control-btn reset-btn"><img src="./storage/content/icons/video-controler/prev-video.svg"></button>
                         <button id="playPause" class="control-btn reset-btn"><img src="./storage/content/icons/video-controler/pause-btn-icon.svg"></button>
                         <button id="nextVideo" class="control-btn reset-btn"><img src="./storage/content/icons/video-controler/next-video.svg"></button>
@@ -84,12 +84,22 @@
                 </section>
                 <section id="facade-2" class="d-flex align-items-center justify-center flex-wrap flex-column">
                     <div class="main-content">
-                        <img src="./storage/content/sections/2-facade/1-img.png">
+                        <div class="main-content">
+                            <div class="gallery">
+                                <div class="gallery-container">
+                                    <img src="./storage/content/sections/4-perspectives/1-img.jpg" class="gallery-item gallery-item-1" data-index="1">
+                                    <img src="./storage/content/sections/6-institutional/1-img.jpg" class="gallery-item gallery-item-2" data-index="2">
+                                    <img src="./storage/content/sections/2-facade/1-img.png" class="gallery-item gallery-item-3" data-index="3">
+                                    <img src="./storage/content/sections/7-diferencials/3-img.jpg" class="gallery-item gallery-item-2" data-index="4">
+                                    <img src="./storage/content/sections/7-diferencials/2-img.jpg" class="gallery-item gallery-item-3" data-index="5">
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="control-slider style-bar d-flex align-items-center justify-center flex-wrap">
-                        <button id="backSlide" class="control-btn reset-btn"><img src="./storage/content/icons/video-controler/left-arrow.svg"></button>
+                        <button class="control-btn reset-btn nextSlide"><img src="./storage/content/icons/video-controler/left-arrow.svg"></button>
                         <button id="playPauseSlide" class="control-btn reset-btn"><img src="./storage/content/icons/video-controler/play-btn-icon.svg"></button>
-                        <button id="nextSlide" class="control-btn reset-btn"><img src="./storage/content/icons/video-controler/right-arrow.svg"></button>
+                        <button class="control-btn reset-btn backSlide"><img src="./storage/content/icons/video-controler/right-arrow.svg"></button>
                     </div>
                 </section>
                 <section id="view-3" class="d-flex align-items-center justify-between flex-wrap">
@@ -202,24 +212,38 @@
                         </div>
                     </div>
                     <div class="control-slider style-bar d-flex align-items-center justify-center flex-wrap">
-                        <button id="backSlide" class="control-btn reset-btn"><img src="./storage/content/icons/video-controler/left-arrow.svg"></button>
+                        <button class="control-btn reset-btn backSlide"><img src="./storage/content/icons/video-controler/left-arrow.svg"></button>
                         <p class="fw-medium white fs-24">Nome da planta baixa</p>
-                        <button id="nextSlide" class="control-btn reset-btn"><img src="./storage/content/icons/video-controler/right-arrow.svg"></button>
+                        <button class="control-btn reset-btn nextSlide"><img src="./storage/content/icons/video-controler/right-arrow.svg"></button>
                     </div>
                 </section>
                 <section id="plan-5" class="d-flex align-items-center justify-center flex-wrap flex-column">
                     <div class="main-content">
-                        <img src="./storage/content/sections/5-plan/1-img.jpg">
+                        <div class="gallery">
+                            <div class="gallery-container">
+                                <img src="./storage/content/sections/5-plan/1-img.jpg" class="gallery-item gallery-item-1" data-index="1">
+                                <img src="./storage/content/sections/5-plan/1-img.jpg" class="gallery-item gallery-item-2" data-index="2">
+                                <img src="./storage/content/sections/5-plan/1-img.jpg" class="gallery-item gallery-item-3" data-index="3">
+                            </div>
+                        </div>
                     </div>
                     <div class="control-slider style-bar d-flex align-items-center justify-center flex-wrap">
-                        <button class="reset-btn active"><p class="fw-regular white fs-21">2 Dormitórios</p></button>
-                        <button class="reset-btn"><p class="fw-regular white fs-21">Final 09</p></button>
-                        <button class="reset-btn"><p class="fw-regular white fs-21">Final 11</p></button>
+                        <button class="reset-btn active" data-index="1"><p class="fw-regular white fs-21">2 Dormitórios</p></button>
+                        <button class="reset-btn" data-index="2"><p class="fw-regular white fs-21">Final 09</p></button>
+                        <button class="reset-btn" data-index="3"><p class="fw-regular white fs-21">Final 11</p></button>
                     </div>
-                </section>
-                <section id="institutional-6" class="d-flex align-items-center justify-center flex-wrap flex-column">
+                </section>                         
+                <section id="location-6" class="d-flex align-items-center justify-center flex-wrap flex-column">
                     <div class="main-content">
-                        <img src="./storage/content/sections/6-institutional/1-img.jpg">
+                        <div class="gallery">
+                            <div class="gallery-container">
+                                <img src="./storage/content/sections/2-facade/1-img.png" class="gallery-item gallery-item-1" data-index="1" data-legend="Escola Pueri Domus 1" data-text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ultrices est vitae massa aliquet volutpat. Etiam justo nisi, iaculis quis bibendum in, laoreet id erat. Etiam eleifend sapien id diam eleifend ornare. Sed eget nulla lectus.">
+                                <img src="./storage/content/sections/4-perspectives/1-img.jpg" class="gallery-item gallery-item-2" data-index="2" data-legend="Escola Pueri Domus 2" data-text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ultrices est vitae massa aliquet volutpat. Etiam justo nisi, iaculis quis bibendum in, laoreet id erat. Etiam eleifend sapien id diam eleifend ornare. Sed eget nulla lectus.">
+                                <img src="./storage/content/sections/6-institutional/1-img.jpg" class="gallery-item gallery-item-3" data-index="3" data-legend="Escola Pueri Domus 3" data-text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ultrices est vitae massa aliquet volutpat. Etiam justo nisi, iaculis quis bibendum in, laoreet id erat. Etiam eleifend sapien id diam eleifend ornare. Sed eget nulla lectus.">
+                                <img src="./storage/content/sections/7-diferencials/3-img.jpg" class="gallery-item gallery-item-2" data-index="4" data-legend="Escola Pueri Domus 4" data-text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ultrices est vitae massa aliquet volutpat. Etiam justo nisi, iaculis quis bibendum in, laoreet id erat. Etiam eleifend sapien id diam eleifend ornare. Sed eget nulla lectus.">
+                                <img src="./storage/content/sections/7-diferencials/2-img.jpg" class="gallery-item gallery-item-3" data-index="5" data-legend="Escola Pueri Domus 5" data-text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ultrices est vitae massa aliquet volutpat. Etiam justo nisi, iaculis quis bibendum in, laoreet id erat. Etiam eleifend sapien id diam eleifend ornare. Sed eget nulla lectus.">
+                            </div>
+                        </div>
                     </div>
                     <div class="control-slider style-bar d-flex flex-column flex-wrap">
                         <h2 class="fw-medium white fs-24">Escola Pueri Domus</h2>
@@ -247,9 +271,12 @@
         </main>
     </div>
     <script src="./storage/js/navbar.js"></script>
+    <script src="./storage/js/facade.js"></script>
     <script src="./storage/js/diferencials.js"></script>
     <script src="./storage/js/videoController.js"></script>
-    <script src="./storage/js/slider.js"></script>
+    <script src="./storage/js/perspectives.js"></script>
+    <script src="./storage/js/plant.js"></script>
+    <script src="./storage/js/location.js"></script>
     <script src="./storage/js/popup.js"></script>
     <script src="./storage/js/view.js"></script>
 </body>

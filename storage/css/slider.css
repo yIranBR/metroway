@@ -156,12 +156,12 @@ body {
 }
 
 
-#perspectives-4 .main-content {
+#facade-2 .main-content, #perspectives-4 .main-content, #plan-5 .main-content, #location-6 .main-content {
     aspect-ratio: auto;
     background-color: transparent;
 }
 
-#perspectives-4 .gallery-container {
+.gallery-container {
     align-items: center;
     display: flex;
     margin: auto;
@@ -171,4 +171,8 @@ body {
     width: 90%;
     max-width: 90%;
     border-radius: 3.6vw;
+}
+
+#plan-5 .gallery-item-1 {
+    left: 53%;
 }
