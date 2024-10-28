@@ -1,8 +1,8 @@
-const popupLocation = document.getElementById('locationPopupContainer');
+/*const popupLocation = document.getElementById('locationPopupContainer');
 const popupLocationSlide = popupLocation.querySelectorAll('.gallery-item');
 const openPopupLocation = document.getElementById('openPopupBtnLocation');
 const closePopupLocation = popupLocation.querySelector('.closePopupBtn');
-const controlSliderLocation = popupLocation.querySelector('.control-slider');
+const controlSliderLocation = popupLocation.querySelector('.control-slider');*/
 
 class LocationSlider {
     constructor(container) {
@@ -10,38 +10,38 @@ class LocationSlider {
         this.carouselContainer = this.container.querySelector('.gallery-container');
         this.carouselArrayContainer = this.container.querySelectorAll('.gallery-item');
         this.carouselArray = [...this.carouselArrayContainer];
-        this.poupLocationArray = [...popupLocationSlide];
+        //this.poupLocationArray = [...popupLocationSlide];
         this.legendElement = this.container.querySelector('h2');
         this.textElement = this.container.querySelector('p');
 
         this.isDragging = false;
         this.startX = 0;
         this.currentX = 0;
-        this.openPopup = false;
+        //this.openPopup = false;
 
         this.initDragEvents();
         this.updateGallery();
 
-        openPopupLocation.addEventListener('click', () => this.togglePopup());
-        closePopupLocation.addEventListener('click', () => this.togglePopup());
+        //openPopupLocation.addEventListener('click', () => this.togglePopup());
+        //closePopupLocation.addEventListener('click', () => this.togglePopup());
     }
 
     togglePopup() {
-        popupLocation.classList.toggle('close');
-        this.openPopup = !this.openPopup;
+        //popupLocation.classList.toggle('close');
+        //this.openPopup = !this.openPopup;
         this.updateGallery();
-        (this.openPopup ? controlSliderLocation.style.backgroud = "rgba(88, 88, 88, 0.6)": "rgba(88, 88, 88, 0.3)");
+        //(this.openPopup ? controlSliderLocation.style.backgroud = "rgba(88, 88, 88, 0.6)": "rgba(88, 88, 88, 0.3)");
     }
 
     updateGallery() {
         this.carouselArray.forEach((el, i) => {
             el.classList.remove('gallery-item-1', 'gallery-item-2', 'gallery-item-3', 'gallery-item-4', 'gallery-item-5');
-            this.poupLocationArray[i].classList.remove('gallery-item-1', 'gallery-item-2', 'gallery-item-3');
+            //this.poupLocationArray[i].classList.remove('gallery-item-1', 'gallery-item-2', 'gallery-item-3');
         });
 
         this.carouselArray.slice(0, 5).forEach((el, i) => {
             el.classList.add(`gallery-item-${i + 1}`);
-            this.poupLocationArray[i].classList.add(`gallery-item-${i + 1}`);   
+            //this.poupLocationArray[i].classList.add(`gallery-item-${i + 1}`);   
         });
 
         this.updateLegend();
@@ -65,10 +65,10 @@ class LocationSlider {
     setCurrentState(direction) {
         if (direction === 'previous') {
             this.carouselArray.unshift(this.carouselArray.pop());
-            this.poupLocationArray.unshift(this.poupLocationArray.pop());
+            //this.poupLocationArray.unshift(this.poupLocationArray.pop());
         } else if (direction === 'next') {
             this.carouselArray.push(this.carouselArray.shift());
-            this.poupLocationArray.push(this.poupLocationArray.shift());
+            //this.poupLocationArray.push(this.poupLocationArray.shift());
         }
 
         this.updateGallery();

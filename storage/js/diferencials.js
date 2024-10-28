@@ -3,10 +3,11 @@ const subtitleElement = document.querySelector('#diferencials-7 .txt-group p.fw-
 const paragraphElement = document.querySelector('#diferencials-7 .txt-group p.fw-regular.fs-21');
 const imgElements = document.querySelectorAll('#diferencials-7 .img-header .gallery-item');
 
-const popupDiferencials = document.getElementById('diferencialsPopupContainer');
+/*const popupDiferencials = document.getElementById('diferencialsPopupContainer');
 const popupDiferencialsSlide = popupDiferencials.querySelectorAll('.gallery-item');
 const openPopupDiferencials = document.getElementById('openPopupBtnDiferencials');
 const closePopupDiferencials = popupDiferencials.querySelector('.closePopupBtn');
+*/
 
 let currentIndex = 1;
 
@@ -17,9 +18,9 @@ function updateContent(index) {
         img.style.opacity = (i === currentIndex ? '1' : '0');
     });
     
-    popupDiferencialsSlide.forEach((slide, i) => {
+    /*popupDiferencialsSlide.forEach((slide, i) => {
         slide.style.opacity = (i === currentIndex ? '1' : '0');
-    });
+    });*/
 
     const activeImg = imgElements[currentIndex];
 
@@ -49,15 +50,17 @@ function prevDiferencial() {
 document.querySelectorAll('#diferencials-7 .arrow-btn')[0].addEventListener('click', prevDiferencial);
 document.querySelectorAll('#diferencials-7 .arrow-btn')[1].addEventListener('click', nextDiferencial);
 
-popupDiferencials.querySelector('.prev-slide').addEventListener('click', prevDiferencial);
+/*popupDiferencials.querySelector('.prev-slide').addEventListener('click', prevDiferencial);
 popupDiferencials.querySelector('.next-slide').addEventListener('click', nextDiferencial);
+*/
 
 updateContent(currentIndex);
 
+/*
 openPopupDiferencials.addEventListener('click', () => {
     popupDiferencials.classList.remove('close');
 });
 
 closePopupDiferencials.addEventListener('click', () => {
     popupDiferencials.classList.add('close');
-});
+});*/
