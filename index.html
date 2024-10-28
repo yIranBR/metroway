@@ -5,15 +5,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./storage/css/index.css">
     <link rel="stylesheet" href="./storage/css/slider.css">
-    <link rel="stylesheet" href="./storage/library/pannellum/pannellum.css"/>
     <title>Metroway</title>
 </head>
 <body>
-    <div id="videoPopupContainer" class="close">
+    <div id="videoPopupContainer" class="popupContainer close">
         <video id="myVideoPopup" loop="true" preload="auto" autoplay="true" muted="true" playsinline="true" data-wf-ignore="true" data-object-fit="cover">
             <source src="./storage/content/sections/1-animation/1-video.mp4" data-wf-ignore="true" />
         </video>
-        <button id="closePopupBtn" class="arrow-btn reset-btn d-flex align-items-center justify-center reset-btn">
+        <button class="arrow-btn reset-btn closePopupBtn d-flex align-items-center justify-center reset-btn">
+            <img src="./storage/content/icons/popup/close-full-screen-btn.svg">
+        </button>
+    </div>
+    <div id="facadePopupContainer" class="popupContainer close">
+        <img src="./storage/content/sections/4-perspectives/1-img.jpg" class="gallery-item gallery-item-1">
+        <img src="./storage/content/sections/6-institutional/1-img.jpg" class="gallery-item gallery-item-2">
+        <img src="./storage/content/sections/2-facade/1-img.png" class="gallery-item gallery-item-3">
+        <img src="./storage/content/sections/7-diferencials/3-img.jpg" class="gallery-item gallery-item-2">
+        <img src="./storage/content/sections/7-diferencials/2-img.jpg" class="gallery-item gallery-item-3">
+        
+        <button class="arrow-btn reset-btn closePopupBtn d-flex align-items-center justify-center reset-btn">
+            <img src="./storage/content/icons/popup/close-full-screen-btn.svg">
+        </button>
+    </div>
+    <div id="perspectivePopupContainer" class="popupContainer close">
+        <img src="./storage/content/sections/2-facade/1-img.png" class="gallery-item gallery-item-1">
+        <img src="./storage/content/sections/7-diferencials/3-img.jpg" class="gallery-item gallery-item-2">
+        <img src="./storage/content/sections/4-perspectives/1-img.jpg" class="gallery-item gallery-item-3">
+        <img src="./storage/content/sections/6-institutional/1-img.jpg" class="gallery-item gallery-item-4">
+        <img src="./storage/content/sections/7-diferencials/2-img.jpg" class="gallery-item gallery-item-5">
+        
+        <button class="arrow-btn reset-btn closePopupBtn d-flex align-items-center justify-center reset-btn">
+            <img src="./storage/content/icons/popup/close-full-screen-btn.svg">
+        </button>
+    </div>
+    <div id="planPopupContainer" class="popupContainer close">
+        <img src="./storage/content/sections/5-plan/1-img.jpg" class="gallery-item gallery-item-1">
+        <img src="./storage/content/sections/5-plan/1-img.jpg" class="gallery-item gallery-item-2">
+        <img src="./storage/content/sections/5-plan/1-img.jpg" class="gallery-item gallery-item-3">
+        
+        <button class="arrow-btn reset-btn closePopupBtn d-flex align-items-center justify-center reset-btn">
+            <img src="./storage/content/icons/popup/close-full-screen-btn.svg">
+        </button>
+    </div>
+    <div id="locationPopupContainer" class="popupContainer close">
+        <img src="./storage/content/sections/2-facade/1-img.png" class="gallery-item gallery-item-1">
+        <img src="./storage/content/sections/4-perspectives/1-img.jpg" class="gallery-item gallery-item-2">
+        <img src="./storage/content/sections/6-institutional/1-img.jpg" class="gallery-item gallery-item-3">
+        <img src="./storage/content/sections/7-diferencials/3-img.jpg" class="gallery-item gallery-item-2">
+        <img src="./storage/content/sections/7-diferencials/2-img.jpg" class="gallery-item gallery-item-3">
+        
+        <button class="arrow-btn reset-btn closePopupBtn d-flex align-items-center justify-center reset-btn">
+            <img src="./storage/content/icons/popup/close-full-screen-btn.svg">
+        </button>
+    </div>
+    <div id="diferencialsPopupContainer" class="popupContainer close">
+        <img src="./storage/content/sections/4-perspectives/1-img.jpg" class="gallery-item gallery-item-1">
+        <img src="./storage/content/sections/7-diferencials/2-img.jpg" class="gallery-item gallery-item-2">
+        <img src="./storage/content/sections/7-diferencials/3-img.jpg" class="gallery-item gallery-item-3">
+        
+        <button class="reset-btn arrow-btn d-flex align-items-center justify-center flex-wrap prev-slide"><img src="./storage/content/icons/slider-icons/left-arrow.svg"></button>
+        <button class="reset-btn arrow-btn d-flex align-items-center justify-center flex-wrap next-slide"><img src="./storage/content/icons/slider-icons/right-arrow.svg"></button>
+        <button class="arrow-btn reset-btn closePopupBtn d-flex align-items-center justify-center reset-btn">
             <img src="./storage/content/icons/popup/close-full-screen-btn.svg">
         </button>
     </div>
@@ -65,11 +117,11 @@
             </div>
             <div id="sections-list">
                 <section id="animation-1" class="d-flex align-items-center justify-center flex-wrap flex-column">
-                    <div class="main-content">
+                    <div class="main-content animate__animated">
                         <video id="myVideo" loop="true" preload="auto" autoplay="true" muted="true" playsinline="true" data-wf-ignore="true" data-object-fit="cover">
                             <source src="./storage/content/sections/1-animation/1-video.mp4" data-wf-ignore="true" />
                         </video>
-                        <button id="openPopupBtn" class="arrow-btn reset-btn d-flex align-items-center justify-center reset-btn">
+                        <button id="openPopupBtn" class="arrow-btn reset-btn openPopupBtn d-flex align-items-center justify-center reset-btn">
                             <img src="./storage/content/icons/popup/open-full-screen-btn.svg">
                         </button>
                     </div>
@@ -83,7 +135,7 @@
                     </div>
                 </section>
                 <section id="facade-2" class="d-flex align-items-center justify-center flex-wrap flex-column">
-                    <div class="main-content">
+                    <div class="main-content animate__animated">
                         <div class="main-content">
                             <div class="gallery">
                                 <div class="gallery-container">
@@ -92,6 +144,9 @@
                                     <img src="./storage/content/sections/2-facade/1-img.png" class="gallery-item gallery-item-3" data-index="3">
                                     <img src="./storage/content/sections/7-diferencials/3-img.jpg" class="gallery-item gallery-item-2" data-index="4">
                                     <img src="./storage/content/sections/7-diferencials/2-img.jpg" class="gallery-item gallery-item-3" data-index="5">
+                                    <button id="openPopupBtnFacade" class="arrow-btn reset-btn openPopupBtn d-flex align-items-center justify-center reset-btn">
+                                        <img src="./storage/content/icons/popup/open-full-screen-btn.svg">
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -107,7 +162,7 @@
                         <div class="view-legend style-bar d-flex align-items-center justify-center flex-wrap">
                             <p class="fw-medium white fs-24">Vista Panorâmica do Andar 5°</p>
                         </div>
-                        <div class="main-content">
+                        <div class="main-content animate__animated">
                             <div class="main-content-list d-flex align-items-center justify-center flex-wrap">
                                 <script src="./storage/library/panos/tour.js"></script>
                                 <div id="pano4" class="pano-container">
@@ -200,7 +255,7 @@
                             <krpano onready="initializeViewControls()"></krpano>
                 </section>
                 <section id="perspectives-4" class="d-flex align-items-center justify-center flex-wrap flex-column">
-                    <div class="main-content">
+                    <div class="main-content animate__animated">
                         <div class="gallery">
                             <div class="gallery-container">
                                 <img src="./storage/content/sections/2-facade/1-img.png" class="gallery-item gallery-item-1" data-idenx="1" data-legend="Nome da planta baixa - 1">
@@ -208,6 +263,9 @@
                                 <img src="./storage/content/sections/4-perspectives/1-img.jpg" class="gallery-item gallery-item-3" data-idenx="3" data-legend="Nome da planta baixa - 3">
                                 <img src="./storage/content/sections/6-institutional/1-img.jpg" class="gallery-item gallery-item-4" data-idenx="4" data-legend="Nome da planta baixa - 4">
                                 <img src="./storage/content/sections/7-diferencials/2-img.jpg" class="gallery-item gallery-item-5" data-idenx="5" data-legend="Nome da planta baixa - 5">
+                                <button id="openPopupBtnPerspective" class="arrow-btn reset-btn openPopupBtn d-flex align-items-center justify-center reset-btn">
+                                    <img src="./storage/content/icons/popup/open-full-screen-btn.svg">
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -218,12 +276,15 @@
                     </div>
                 </section>
                 <section id="plan-5" class="d-flex align-items-center justify-center flex-wrap flex-column">
-                    <div class="main-content">
+                    <div class="main-content animate__animated">
                         <div class="gallery">
                             <div class="gallery-container">
                                 <img src="./storage/content/sections/5-plan/1-img.jpg" class="gallery-item gallery-item-1" data-index="1">
                                 <img src="./storage/content/sections/5-plan/1-img.jpg" class="gallery-item gallery-item-2" data-index="2">
                                 <img src="./storage/content/sections/5-plan/1-img.jpg" class="gallery-item gallery-item-3" data-index="3">
+                                <button id="openPopupBtnPlan" class="arrow-btn reset-btn openPopupBtn d-flex align-items-center justify-center reset-btn">
+                                    <img src="./storage/content/icons/popup/open-full-screen-btn.svg">
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -234,7 +295,7 @@
                     </div>
                 </section>                         
                 <section id="location-6" class="d-flex align-items-center justify-center flex-wrap flex-column">
-                    <div class="main-content">
+                    <div class="main-content animate__animated">
                         <div class="gallery">
                             <div class="gallery-container">
                                 <img src="./storage/content/sections/2-facade/1-img.png" class="gallery-item gallery-item-1" data-index="1" data-legend="Escola Pueri Domus 1" data-text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ultrices est vitae massa aliquet volutpat. Etiam justo nisi, iaculis quis bibendum in, laoreet id erat. Etiam eleifend sapien id diam eleifend ornare. Sed eget nulla lectus.">
@@ -242,6 +303,9 @@
                                 <img src="./storage/content/sections/6-institutional/1-img.jpg" class="gallery-item gallery-item-3" data-index="3" data-legend="Escola Pueri Domus 3" data-text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ultrices est vitae massa aliquet volutpat. Etiam justo nisi, iaculis quis bibendum in, laoreet id erat. Etiam eleifend sapien id diam eleifend ornare. Sed eget nulla lectus.">
                                 <img src="./storage/content/sections/7-diferencials/3-img.jpg" class="gallery-item gallery-item-2" data-index="4" data-legend="Escola Pueri Domus 4" data-text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ultrices est vitae massa aliquet volutpat. Etiam justo nisi, iaculis quis bibendum in, laoreet id erat. Etiam eleifend sapien id diam eleifend ornare. Sed eget nulla lectus.">
                                 <img src="./storage/content/sections/7-diferencials/2-img.jpg" class="gallery-item gallery-item-3" data-index="5" data-legend="Escola Pueri Domus 5" data-text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ultrices est vitae massa aliquet volutpat. Etiam justo nisi, iaculis quis bibendum in, laoreet id erat. Etiam eleifend sapien id diam eleifend ornare. Sed eget nulla lectus.">
+                                <button id="openPopupBtnLocation" class="arrow-btn reset-btn openPopupBtn d-flex align-items-center justify-center reset-btn">
+                                    <img src="./storage/content/icons/popup/open-full-screen-btn.svg">
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -251,14 +315,19 @@
                     </div>
                 </section>
                 <section id="diferencials-7" class="d-flex align-items-center justify-center flex-wrap flex-column">
-                    <div class="text-container d-flex align-items-center justify-center flex-column flex-wrap">
+                    <div class="main-content animate__animated text-container d-flex align-items-center justify-center flex-column flex-wrap">
                         <div class="head-group d-flex align-items-center justify-between flex-wrap">
                             <button class="reset-btn arrow-btn d-flex align-items-center justify-center flex-wrap"><img src="./storage/content/icons/slider-icons/left-arrow.svg"></button>
                             <h1 class="fw-regular white fs-24">Diferenciais</h1>
                             <button class="reset-btn arrow-btn d-flex align-items-center justify-center flex-wrap"><img src="./storage/content/icons/slider-icons/right-arrow.svg"></button>
                         </div>
                         <div class="img-header">
-                            <img src="./storage/content/sections/7-diferencials/1-img.png">
+                            <img src="./storage/content/sections/7-diferencials/1-img.png" class="gallery-item" data-title="Fechadura Digital" data-subtitle="Alguma observação" data-paragraph="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ultrices est vitae massa aliquet volutpat. Etiam justo nisi, iaculis quis bibendum in, laoreet id erat. Etiam eleifend sapien id diam eleifend ornare. Sed eget nulla lectus. Pellentesque dictum metus quis arcu porta varius vulputate non elit. 1">
+                            <img src="./storage/content/sections/7-diferencials/2-img.jpg" class="gallery-item" data-title="Câmera de Segurança" data-subtitle="Alguma observação 2" data-paragraph="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut lobortis ex quis metus accumsan, ut tincidunt leo vestibulum. Aenean tincidunt massa vel feugiat tempor. Maecenas sed turpis eget metus convallis vestibulum. Integer et lorem dictum. 2" data-brief="Texto breve sobre a câmera de segurança.">
+                            <img src="./storage/content/sections/7-diferencials/3-img.jpg" class="gallery-item" data-title="Portão Automático" data-subtitle="Alguma observação 3" data-paragraph="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed cursus quam id eros dictum, non dignissim ex molestie. Praesent sed turpis bibendum, tincidunt sapien vitae, varius felis. Aenean vel tortor vitae nisi sodales ultricies." data-brief="Texto breve sobre o portão automático.">
+                            <button id="openPopupBtnDiferencials" class="arrow-btn reset-btn openPopupBtn d-flex align-items-center justify-center reset-btn">
+                                <img src="./storage/content/icons/popup/open-full-screen-btn.svg">
+                            </button>
                         </div>
                         <div class="txt-group d-flex flex-column">
                             <h2 class="fw-medium white fs-21">Fechadura Digital</h2>
@@ -279,5 +348,6 @@
     <script src="./storage/js/location.js"></script>
     <script src="./storage/js/popup.js"></script>
     <script src="./storage/js/view.js"></script>
+    <script src="./storage/js/animate.js"></script>
 </body>
 </html>

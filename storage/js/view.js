@@ -18,18 +18,26 @@ const andaresLegend = [`do Andar ${andaresNumeros[0]}º`, `do Andar ${andaresNum
 function updatePanoramaPosition() {
     const offset = currentPanoramaIndex * panoramaHeight;
     panoramaContainer.style.transform = `translateY(${initialOffset + offset}%)`;
-    legendPano.textContent = `Vista Panorâmica ${andaresLegend[currentPanoramaIndex]}`;
-    btnController.textContent = `${andaresNumeros[currentPanoramaIndex]}º`;
-    indicator.style.marginTop = `-${vwHeight[currentPanoramaIndex]}vw`;
-    indicatorP.textContent = `${andaresNumeros[currentPanoramaIndex]}º`;
+    
+    legendPano.style.opacity = '0';
+    btnController.style.opacity = '0';
+    indicatorP.style.opacity = '0';
+
+    setTimeout(() => {
+        legendPano.textContent = `Vista Panorâmica ${andaresLegend[currentPanoramaIndex]}`;
+        btnController.textContent = `${andaresNumeros[currentPanoramaIndex]}º`;
+        indicatorP.textContent = `${andaresNumeros[currentPanoramaIndex]}º`;
+        indicator.style.marginTop = `-${vwHeight[currentPanoramaIndex]}vw`;
+
+        legendPano.style.opacity = '1';
+        btnController.style.opacity = '1';
+        indicatorP.style.opacity = '1';
+    }, 500);
 }
 
 nextPanoramaBtn.addEventListener('click', function() {
     if (currentPanoramaIndex < totalPanoramas - 1) {
         currentPanoramaIndex++;
-        updatePanoramaPosition();
-    } else {
-        currentPanoramaIndex = 0;
         updatePanoramaPosition();
     }
 });
@@ -37,9 +45,6 @@ nextPanoramaBtn.addEventListener('click', function() {
 prevPanoramaBtn.addEventListener('click', function() {
     if (currentPanoramaIndex > 0) {
         currentPanoramaIndex--;
-        updatePanoramaPosition();
-    } else {
-        currentPanoramaIndex = totalPanoramas - 1;
         updatePanoramaPosition();
     }
 });

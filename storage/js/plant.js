@@ -1,9 +1,15 @@
+const popupPlan = document.getElementById('planPopupContainer');
+const popupPlanSlide = popupPlan.querySelectorAll('.gallery-item');
+const openPopupPlan = document.getElementById('openPopupBtnPlan');
+const closePopupPlan = popupPlan.querySelector('.closePopupBtn');
+
 class CarouselPlant {
     constructor(container, controlButtons) {
         this.container = container;
         this.carouselContainer = this.container.querySelector('.gallery-container');
         this.carouselArrayContainer = this.container.querySelectorAll('.gallery-item');
         this.carouselArray = [...this.carouselArrayContainer];
+        this.poupPlan = [...popupPlanSlide];
 
         this.controlButtons = controlButtons;
         
@@ -14,15 +20,26 @@ class CarouselPlant {
         this.initDragEvents();
         this.initButtonControls();
         this.updateGallery();
+
+        openPopupPlan.addEventListener('click', () => this.togglePopup());
+        closePopupPlan.addEventListener('click', () => this.togglePopup());
+    }
+
+    togglePopup() {
+        popupPlan.classList.toggle('close');
+        this.openPopup = !this.openPopup;
+        this.updateGallery();
     }
 
     updateGallery() {
-        this.carouselArray.forEach((el) => {
+        this.carouselArray.forEach((el, i) => {
             el.classList.remove('gallery-item-1', 'gallery-item-2', 'gallery-item-3');
+            this.poupPlan[i].classList.remove('gallery-item-1', 'gallery-item-2', 'gallery-item-3');
         });
 
         this.carouselArray.slice(0, 3).forEach((el, i) => {
             el.classList.add(`gallery-item-${i + 1}`);
+            this.poupPlan[i].classList.add(`gallery-item-${i + 1}`);
         });
 
         this.updateActiveButton();
@@ -41,6 +58,7 @@ class CarouselPlant {
     setCurrentState(index) {
         while (parseInt(this.carouselArray[1].getAttribute('data-index'), 10) !== index + 1) {
             this.carouselArray.push(this.carouselArray.shift());
+            this.poupPlan.push(this.poupPlan.shift());
         }
         this.updateGallery();
     }

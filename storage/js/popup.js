@@ -1,6 +1,6 @@
-const openPopupBtn = document.getElementById('openPopupBtn');
-const closePopupBtn = document.getElementById('closePopupBtn');
 const popupContainer = document.getElementById('videoPopupContainer');
+const openPopupBtn = document.getElementById('openPopupBtn');
+const closePopupBtn = popupContainer.querySelector('.closePopupBtn');
 const videobarControler = document.getElementById('video-bar-controller');
 
 const togglePopupContainer = function() {

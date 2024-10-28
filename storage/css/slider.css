@@ -173,6 +173,16 @@ body {
     border-radius: 3.6vw;
 }
 
+#facade-2 img {
+    inset: 0;
+    margin: auto;
+    transform: translate(0);
+    transition: 1s;
+}
+#facade-2 .gallery-item-1 {
+    opacity: 1;
+}
+
 #plan-5 .gallery-item-1 {
     left: 53%;
 }

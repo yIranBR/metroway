@@ -1,52 +1,63 @@
-const diferencialsData = [
-    {
-        title: "Fechadura Digital",
-        subtitle: "Alguma observação",
-        paragraph: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ultrices est vitae massa aliquet volutpat. Etiam justo nisi, iaculis quis bibendum in, laoreet id erat. Etiam eleifend sapien id diam eleifend ornare. Sed eget nulla lectus. Pellentesque dictum metus quis arcu porta varius vulputate non elit.",
-        brief: "Texto breve sobre a fechadura digital.",
-        imgSrc: "./storage/content/sections/7-diferencials/1-img.png"
-    },
-    {
-        title: "Câmera de Segurança",
-        subtitle: "Alguma observação 2",
-        paragraph: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut lobortis ex quis metus accumsan, ut tincidunt leo vestibulum. Aenean tincidunt massa vel feugiat tempor. Maecenas sed turpis eget metus convallis vestibulum. Integer et lorem dictum.",
-        brief: "Texto breve sobre a câmera de segurança.",
-        imgSrc: "./storage/content/sections/7-diferencials/2-img.jpg"
-    },
-    {
-        title: "Portão Automático",
-        subtitle: "Alguma observação 3",
-        paragraph: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed cursus quam id eros dictum, non dignissim ex molestie. Praesent sed turpis bibendum, tincidunt sapien vitae, varius felis. Aenean vel tortor vitae nisi sodales ultricies.",
-        brief: "Texto breve sobre o portão automático.",
-        imgSrc: "./storage/content/sections/7-diferencials/3-img.jpg"
-    }
-];
-
-let currentIndex = 0;
-
 const titleElement = document.querySelector('#diferencials-7 .txt-group h2');
 const subtitleElement = document.querySelector('#diferencials-7 .txt-group p.fw-regular.fs-18');
 const paragraphElement = document.querySelector('#diferencials-7 .txt-group p.fw-regular.fs-21');
-const imgElement = document.querySelector('#diferencials-7 .img-header img');
+const imgElements = document.querySelectorAll('#diferencials-7 .img-header .gallery-item');
+
+const popupDiferencials = document.getElementById('diferencialsPopupContainer');
+const popupDiferencialsSlide = popupDiferencials.querySelectorAll('.gallery-item');
+const openPopupDiferencials = document.getElementById('openPopupBtnDiferencials');
+const closePopupDiferencials = popupDiferencials.querySelector('.closePopupBtn');
+
+let currentIndex = 1;
 
 function updateContent(index) {
-    const currentDiferencial = diferencialsData[index];
-    titleElement.textContent = currentDiferencial.title;
-    subtitleElement.textContent = currentDiferencial.subtitle;
-    paragraphElement.textContent = currentDiferencial.paragraph;
-    imgElement.src = currentDiferencial.imgSrc;
+    currentIndex = (index + imgElements.length) % imgElements.length;
+
+    imgElements.forEach((img, i) => {
+        img.style.opacity = (i === currentIndex ? '1' : '0');
+    });
+    
+    popupDiferencialsSlide.forEach((slide, i) => {
+        slide.style.opacity = (i === currentIndex ? '1' : '0');
+    });
+
+    const activeImg = imgElements[currentIndex];
+
+    titleElement.style.opacity = '0';
+    subtitleElement.style.opacity = '0';
+    paragraphElement.style.opacity = '0';
+
+    setTimeout(() => {
+        titleElement.textContent = activeImg.getAttribute('data-title');
+        subtitleElement.textContent = activeImg.getAttribute('data-subtitle');
+        paragraphElement.textContent = activeImg.getAttribute('data-paragraph');
+
+        titleElement.style.opacity = '1';
+        subtitleElement.style.opacity = '1';
+        paragraphElement.style.opacity = '1';
+    }, 500);
 }
 
 function nextDiferencial() {
-    currentIndex = (currentIndex + 1) % diferencialsData.length; // Vai para o próximo, e volta ao início se for o último
-    updateContent(currentIndex);
-}
-function prevDiferencial() {
-    currentIndex = (currentIndex - 1 + diferencialsData.length) % diferencialsData.length; // Vai para o anterior, e volta ao fim se for o primeiro
-    updateContent(currentIndex);
+    updateContent(currentIndex + 1);
 }
 
-document.querySelectorAll('#diferencials-7 .arrow-btn')[0].addEventListener('click', prevDiferencial); // Botão para voltar
-document.querySelectorAll('#diferencials-7 .arrow-btn')[1].addEventListener('click', nextDiferencial); // Botão para avançar
+function prevDiferencial() {
+    updateContent(currentIndex - 1);
+}
+
+document.querySelectorAll('#diferencials-7 .arrow-btn')[0].addEventListener('click', prevDiferencial);
+document.querySelectorAll('#diferencials-7 .arrow-btn')[1].addEventListener('click', nextDiferencial);
+
+popupDiferencials.querySelector('.prev-slide').addEventListener('click', prevDiferencial);
+popupDiferencials.querySelector('.next-slide').addEventListener('click', nextDiferencial);
 
 updateContent(currentIndex);
+
+openPopupDiferencials.addEventListener('click', () => {
+    popupDiferencials.classList.remove('close');
+});
+
+closePopupDiferencials.addEventListener('click', () => {
+    popupDiferencials.classList.add('close');
+});

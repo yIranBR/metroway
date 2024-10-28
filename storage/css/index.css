@@ -156,7 +156,13 @@ body, main {
     margin-bottom: 1.66vw;
     border-radius: 3.6vw;
     overflow: hidden;
+    opacity: 1;
     background-color: rgba(255, 255, 255, .25);
+    transition-duration: 1s !important;
+    animation-duration: 1s !important;
+}
+.invisible {
+    opacity: 0 !important;
 }
 #app .main-content video, #app .main-content img, #panorama, #diferencials-7 .text-container .img-header img {
     width: 100%;
@@ -200,6 +206,8 @@ body, main {
 #app #sections-list section {
     width: 100%;
     height: 100vh;
+    transition: 1s ease-in-out;
+    animation-duration: 1s;
 }
 #app #sections-list::-webkit-scrollbar {
     background-color: transparent;
@@ -247,6 +255,16 @@ body, main {
 #view-3 .view-legend {
     padding: 1vw 3.33vw;
 }
+.arrow-btn,
+.control-btn,
+#view-3 p, 
+#perspectives-4 p,
+#location-6 p,
+#location-6 h2,
+#diferencials-7 .txt-group h2,
+#diferencials-7 .txt-group p {
+    transition: 500ms ease-in-out;
+}
 #panoramic-viewer {
     width: 90%;
 }
@@ -287,12 +305,12 @@ body, main {
     text-align: center;
 }
 #view-3 .arrow-btn {
-    transform: rotate(90deg);
     width: 3.75vw;
 }
 #view-3 .arrow-btn img {
     width: 40%;
     max-height: 40%;
+    transform: rotate(90deg);
 }
 #view-3 p {
     text-align: center;
@@ -328,21 +346,29 @@ body, main {
 #location-6 .control-slider {
     padding: 1.66vw 3.33vw;
     gap: 1vw;
+    z-index: 999;
 }
 #diferencials-7 .text-container {
     gap: 1.66vw;
     background-color: rgba(128, 128, 128, .7);
     padding: 1.66vw 3.33vw;
     border-radius: 3.6vw;
+    width: auto;
+    aspect-ratio: auto;
+    margin: 0;
 }
 #diferencials-7 .text-container .img-header {
     width: 100%;
     height: 15.62vw;
     border-radius: 1.3vw;
     overflow: hidden;
+    position: relative;
 }
 #diferencials-7 .text-container .img-header img {
-    clip-path: polygon(M794,271H62a24.979,24.979,0,0,1-25-25V173a37,37,0,1,0,0-74V25A24.98,24.98,0,0,1,62,0H794a24.98,24.98,0,0,1,25,25V246a24.98,24.98,0,0,1-25,25Z);
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    transition: 1s ease-in-out;
 }
 #diferencials-7 .text-container h1 {
     text-align: center;
@@ -369,7 +395,7 @@ body, main {
 #app #animation-1 .main-content {
     position: relative;
 }
-#videoPopupContainer {
+.popupContainer {
     position: fixed;
     display: block;
     width: 100vw;
@@ -392,15 +418,16 @@ body, main {
     height: 100vh;
     margin: auto;
 }
-#videoPopupContainer button {
+.popupContainer button {
     position: absolute;
     display: block;
     width: 2.5vw;
     aspect-ratio: 1 / 1;
     top: 1.66vw;
     right: 1.66vw;
+    z-index: 99;
 }
-#videoPopupContainer button img {
+.popupContainer button img {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -408,7 +435,32 @@ body, main {
     inset: 0;
     margin: auto;
 }
-#videoPopupContainer.close {
+.popupContainer .gallery-item-1, #locationPopupContainer .gallery-item-1, #location-6 .gallery-item-1 {
+    opacity: 1;
+    z-index: 9;
+}
+#location-6 .control-slider {
+    transition: 1s ease-in-out;
+}
+#diferencialsPopupContainer .prev-slide, #diferencialsPopupContainer .next-slide {
+    top: initial;
+    bottom: 1.66vw;
+    left: 45%;
+}
+#diferencialsPopupContainer .next-slide {
+    left: initial;
+    right: 45%;
+}
+.popupContainer img {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+    inset: 0;
+    margin: auto;
+    transform: translate(0);
+    transition: 1s ease-in-out;
+}
+.popupContainer.close {
     width: 70vw;
     height: 39.37vw;
     opacity: 0;
@@ -416,10 +468,48 @@ body, main {
     pointer-events: none;
     border-radius: 3.6vw;
 }
-#openPopupBtn {
+.openPopupBtn {
     width: 2.5vw;
     aspect-ratio: 1 / 1;
     position: absolute;
     right: 1.66vw;
     top: 1.66vw;
+    z-index: 999;
+}
+#diferencials-7 .openPopupBtn img {
+    opacity: 1 !important;
+}
+#plan-5 .openPopupBtn, #planPopupContainer .closePopupBtn {
+    background-color: rgba(16, 16, 16, .4) !important;
+}
+#facade-2 .control-slider, #view-3 .view-legend, #perspectives-4 .control-slider, #plan-5 .control-slider {
+    z-index: 999;
+}
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        -webkit-transform: scale3d(.3,.3,.3);
+        transform: scale3d(.3,.3,.3)
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale3d(1, 1, 1);
+    }
+
+    to {
+        opacity: 0;
+        -webkit-transform: scale3d(.3,.3,.3);
+        transform: scale3d(.3,.3,.3)
+    }
+}
+
+/* Configuração do scroll-timeline para a entrada */
+.animate__animated {
+    animation: zoomIn 1s linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 100%;
+    animation-fill-mode: forwards;
+    transition: 1s;
 }

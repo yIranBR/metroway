@@ -1,32 +1,58 @@
+const popupFacade = document.getElementById('facadePopupContainer');
+const popupFacadeSliders = popupFacade.querySelectorAll('.gallery-item');
+const openPopupFacade = document.getElementById('openPopupBtnFacade');
+const closePopupFacade = popupFacade.querySelector('.closePopupBtn');
+
 class FacadeSlider {
     constructor(container) {
         this.container = container;
         this.carouselContainer = this.container.querySelector('.gallery-container');
         this.carouselArrayContainer = this.container.querySelectorAll('.gallery-item');
         this.carouselArray = [...this.carouselArrayContainer];
+        this.popupArray = [...popupFacadeSliders];
         this.backSlide = this.container.querySelector('.backSlide');
         this.nextSlide = this.container.querySelector('.nextSlide');
         this.playPauseButton = this.container.querySelector('#playPauseSlide');
         
-        this.isDragging = false;
         this.isPlaying = false;
         this.autoPlayInterval = null;
         this.isTransitioning = false;
         this.isButtonDisabled = false;
+        this.openPopup = false;
 
-        this.initDragEvents();
         this.useControls();
+        this.updateGallery();
+
+        openPopupFacade.addEventListener('click', () => this.togglePopup());
+        closePopupFacade.addEventListener('click', () => this.togglePopup());
     }
   
+    togglePopup() {
+        popupFacade.classList.toggle('close');
+        this.openPopup = !this.openPopup;
+        this.updateGallery(); // Atualiza a galeria conforme o estado do popup
+    }
+
     updateGallery() {
-        this.carouselArray.forEach((el) => {
+        // Define o índice inicial para o popup sincronizado com o slider principal
+        this.carouselArray.forEach((el, i) => {
+            // Remove classes e define invisibilidade para todas as imagens
             el.classList.remove('gallery-item-1', 'gallery-item-2', 'gallery-item-3', 'gallery-item-4', 'gallery-item-5');
+            this.popupArray[i].classList.remove('gallery-item-1', 'gallery-item-2', 'gallery-item-3', 'gallery-item-4', 'gallery-item-5');
+            el.style.visibility = 'hidden';
+            this.popupArray[i].style.visibility = 'hidden';
         });
-  
-        this.carouselArray.slice(0, 5).forEach((el, i) => {
-            el.classList.add(`gallery-item-${i + 1}`);
-        });
-    }
+    
+        // Mostra a imagem atual no slider principal
+        this.carouselArray[0].classList.add('gallery-item-1');
+        this.carouselArray[0].style.visibility = 'visible';
+    
+        // Verifica se o popup está aberto e mostra a mesma imagem no popup
+        if (this.openPopup) {
+            this.popupArray[0].classList.add('gallery-item-1');
+            this.popupArray[0].style.visibility = 'visible';
+        }
+    }  
   
     setCurrentState(direction) {
         if (this.isTransitioning) return;
@@ -34,27 +60,33 @@ class FacadeSlider {
         
         if (direction === 'previous') {
             this.carouselArray.unshift(this.carouselArray.pop());
+            this.popupArray.unshift(this.popupArray.pop());
         } else if (direction === 'next') {
             this.carouselArray.push(this.carouselArray.shift());
+            this.popupArray.push(this.popupArray.shift());
         }
   
         this.updateGallery();
         setTimeout(() => {
             this.isTransitioning = false;
-        }, 500);
+        }, 1000);
     }
   
     useControls() {
         this.backSlide.addEventListener('click', (e) => {
             e.preventDefault();
-            this.setCurrentState('next');
-            this.stopAutoPlay();
+            if (!this.isTransitioning) {
+                this.setCurrentState('next');
+                this.stopAutoPlay();
+            }
         });
     
         this.nextSlide.addEventListener('click', (e) => {
             e.preventDefault();
-            this.setCurrentState('previous');
-            this.stopAutoPlay();
+            if (!this.isTransitioning) {
+                this.setCurrentState('previous');
+                this.stopAutoPlay();
+            }
         });
     
         this.playPauseButton.addEventListener('click', () => {
@@ -62,10 +94,8 @@ class FacadeSlider {
 
             if (this.isPlaying) {
                 this.stopAutoPlay();
-                console.log('pause');
             } else {
                 this.startAutoPlay();
-                console.log('play');
             }
 
             this.isButtonDisabled = true;
@@ -76,7 +106,7 @@ class FacadeSlider {
     }
 
     startAutoPlay() {
-        this.stopAutoPlay(); // Garante que qualquer intervalo anterior seja encerrado
+        this.stopAutoPlay();
         this.isPlaying = true;
         this.playPauseButton.querySelector('img').src = "./storage/content/icons/video-controler/pause-btn-icon.svg";
         
@@ -87,59 +117,11 @@ class FacadeSlider {
 
     stopAutoPlay() {
         if (this.autoPlayInterval) {
-            clearInterval(this.autoPlayInterval); // Limpa qualquer intervalo ativo
+            clearInterval(this.autoPlayInterval);
             this.autoPlayInterval = null;
         }
         this.isPlaying = false;
         this.playPauseButton.querySelector('img').src = "./storage/content/icons/video-controler/play-btn-icon.svg";
-    }
-  
-    initDragEvents() {
-        this.carouselContainer.addEventListener('mousedown', (e) => {
-            this.isDragging = true;
-            this.startX = e.clientX;
-        });
-  
-        this.carouselContainer.addEventListener('mousemove', (e) => {
-            if (!this.isDragging) return;
-            this.currentX = e.clientX;
-        });
-  
-        this.carouselContainer.addEventListener('mouseup', () => {
-            if (!this.isDragging) return;
-            this.isDragging = false;
-  
-            const diff = this.startX - this.currentX;
-            if (diff > 50) {
-                this.setCurrentState('next');
-            } else if (diff < -50) {
-                this.setCurrentState('previous');
-            }
-            this.stopAutoPlay();
-        });
-  
-        this.carouselContainer.addEventListener('touchstart', (e) => {
-            this.isDragging = true;
-            this.startX = e.touches[0].clientX;
-        });
-  
-        this.carouselContainer.addEventListener('touchmove', (e) => {
-            if (!this.isDragging) return;
-            this.currentX = e.touches[0].clientX;
-        });
-  
-        this.carouselContainer.addEventListener('touchend', () => {
-            if (!this.isDragging) return;
-            this.isDragging = false;
-  
-            const diff = this.startX - this.currentX;
-            if (diff > 50) {
-                this.setCurrentState('next');
-            } else if (diff < -50) {
-                this.setCurrentState('previous');
-            }
-            this.stopAutoPlay();
-        });
     }
 }
   

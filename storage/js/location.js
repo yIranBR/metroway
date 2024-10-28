@@ -1,49 +1,74 @@
+const popupLocation = document.getElementById('locationPopupContainer');
+const popupLocationSlide = popupLocation.querySelectorAll('.gallery-item');
+const openPopupLocation = document.getElementById('openPopupBtnLocation');
+const closePopupLocation = popupLocation.querySelector('.closePopupBtn');
+const controlSliderLocation = popupLocation.querySelector('.control-slider');
+
 class LocationSlider {
     constructor(container) {
         this.container = container;
         this.carouselContainer = this.container.querySelector('.gallery-container');
         this.carouselArrayContainer = this.container.querySelectorAll('.gallery-item');
         this.carouselArray = [...this.carouselArrayContainer];
+        this.poupLocationArray = [...popupLocationSlide];
         this.legendElement = this.container.querySelector('h2');
         this.textElement = this.container.querySelector('p');
 
         this.isDragging = false;
         this.startX = 0;
         this.currentX = 0;
+        this.openPopup = false;
 
         this.initDragEvents();
         this.updateGallery();
+
+        openPopupLocation.addEventListener('click', () => this.togglePopup());
+        closePopupLocation.addEventListener('click', () => this.togglePopup());
+    }
+
+    togglePopup() {
+        popupLocation.classList.toggle('close');
+        this.openPopup = !this.openPopup;
+        this.updateGallery();
+        (this.openPopup ? controlSliderLocation.style.backgroud = "rgba(88, 88, 88, 0.6)": "rgba(88, 88, 88, 0.3)");
     }
 
     updateGallery() {
-        // Remove todas as classes de posição dos slides
-        this.carouselArray.forEach((el) => {
+        this.carouselArray.forEach((el, i) => {
             el.classList.remove('gallery-item-1', 'gallery-item-2', 'gallery-item-3', 'gallery-item-4', 'gallery-item-5');
+            this.poupLocationArray[i].classList.remove('gallery-item-1', 'gallery-item-2', 'gallery-item-3');
         });
 
-        // Aplica as classes de posição com base nos primeiros 5 itens
         this.carouselArray.slice(0, 5).forEach((el, i) => {
             el.classList.add(`gallery-item-${i + 1}`);
+            this.poupLocationArray[i].classList.add(`gallery-item-${i + 1}`);   
         });
 
-        // Atualiza a legenda e o texto
         this.updateLegend();
     }
 
     updateLegend() {
-        // Encontra o slide ativo (aquele que está na posição `gallery-item-3`)
-        const activeSlide = this.carouselArray.find(el => el.classList.contains('gallery-item-3'));
+        this.legendElement.style.opacity = '0';
+        this.textElement.style.opacity = '0';
 
-        // Atualiza o conteúdo do `h2` e `p` com os dados do slide ativo
-        this.legendElement.textContent = activeSlide.getAttribute('data-legend');
-        this.textElement.textContent = activeSlide.getAttribute('data-text');
+        setTimeout(() => {
+            const activeSlide = this.carouselArray.find(el => el.classList.contains('gallery-item-3'));
+
+            this.legendElement.textContent = activeSlide.getAttribute('data-legend');
+            this.textElement.textContent = activeSlide.getAttribute('data-text');
+
+            this.legendElement.style.opacity = '1';
+            this.textElement.style.opacity = '1';
+        }, 500);
     }
 
     setCurrentState(direction) {
         if (direction === 'previous') {
             this.carouselArray.unshift(this.carouselArray.pop());
+            this.poupLocationArray.unshift(this.poupLocationArray.pop());
         } else if (direction === 'next') {
             this.carouselArray.push(this.carouselArray.shift());
+            this.poupLocationArray.push(this.poupLocationArray.shift());
         }
 
         this.updateGallery();
@@ -96,5 +121,4 @@ class LocationSlider {
     }
 }
 
-// Instancia o slider e inicia a galeria
 const locationSlider = new LocationSlider(document.getElementById('location-6'));
